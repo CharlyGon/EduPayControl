@@ -18,6 +18,32 @@ Control of payments (Education) es una solución de escritorio multiplataforma d
 - **Node.js**: Como entorno de ejecución para JavaScript en el lado del servidor, facilitando la interacción con la base de datos y la lógica de la aplicación.
 - **HTML/CSS**: Para la creación de interfaces de usuario atractivas y responsivas.
 
+## Estructura del Proyecto
+```
+EduPayControl/
+├── src/
+│   ├── main/
+│   │   ├── main.ts          # Punto de entrada principal de Electron (manejo de ventanas, sesión, etc.)
+│   │   └── preload.ts       # Script de precarga para comunicarse de forma segura entre el frontend y el backend
+│   ├── renderer/
+│   │   ├── home/
+│   │   │   ├── index.html   # HTML para la página inicial
+│   │   │   └── home.ts      # Lógica específica de la página inicial
+│   │   ├── payment/
+│   │   │   ├── index.html   # HTML para la página de pagos
+│   │   │   └── payment.ts   # Lógica específica de la página de pagos
+│   │   └── styles/          # Carpeta para CSS
+│   │       └── main.css     # Estilos generales
+│   ├── db/
+│   │   └── database.ts      # Lógica de acceso a datos SQLite
+│   └── assets/              # Imágenes, íconos y otros recursos estáticos
+├── node_modules/
+│   └── ...
+├── package.json
+├── tsconfig.json
+└── .gitignore
+```
+
 ## Desarrollo
 
 Para iniciar el desarrollo:
