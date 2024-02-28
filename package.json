@@ -2,9 +2,9 @@
   "name": "edupaycontrol",
   "version": "1.0.0",
   "description": "Control of payments (Education) es una solución de escritorio multiplataforma diseñada para facilitar la gestión y seguimiento de los pagos de las cuotas de los alumnos en instituciones educativas. Permite a los administradores escolares registrar, monitorear y reportar pagos de cuotas de manera eficiente, asegurando una gestión financiera efectiva y transparente dentro del colegio.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
-    "start": "tsc && electron .",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "electron": "^29.0.1",
-    "typescript": "^5.3.3"
+    "electron": "^29.0.1"
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
   }
 }
