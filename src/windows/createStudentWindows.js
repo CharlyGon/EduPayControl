@@ -4,7 +4,7 @@ const url = require('url');
 
 let loadStudentsWindow;
 
-function createLoadStudentsWindow() {
+function createStudentsWindow() {
     loadStudentsWindow = new BrowserWindow({ width: 800, height: 600 });
     loadStudentsWindow.loadURL(url.format({
         pathname: path.join(__dirname, '..', 'views', 'loadStudents.html'),
@@ -18,4 +18,4 @@ function createLoadStudentsWindow() {
     });
 }
 
-module.exports = { createLoadStudentsWindow };
+module.exports = { createStudentsWindow };
