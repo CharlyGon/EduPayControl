@@ -15,14 +15,22 @@
     <main>
         <form id="studentForm" enctype="multipart/form-data">
             <label for="photo">Foto del alumno:</label>
-            <input type="file" id="photo" name="photo" accept="image/*"><br>
             <img id="photoPreview" src="#" alt="Foto del alumno" style="display: none;"><br>
+            <input type="file" id="photo" name="photo" accept="image/*"><br>
 
             <label for="firstName">Nombre:</label>
             <input type="text" id="firstName" name="firstName"><br>
 
             <label for="lastName">Apellido:</label>
             <input type="text" id="lastName" name="lastName"><br>
+
+            <label for="sex">Sexo:</label>
+            <select id="sex" name="sex">
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="non-binary">No Binario</option>
+                <option value="afterSpecies">Trasespecie</option>
+            </select><br>
 
             <label for="address">Dirección:</label>
             <input type="text" id="address" name="address"><br>
@@ -39,12 +47,21 @@
             <label for="guardianPhone">Teléfono Tutor:</label>
             <input type="text" id="guardianPhone" name="guardianPhone"><br>
 
-
             <label for="birthdate">Fecha de Nacimiento:</label>
             <input type="date" id="birthdate" name="birthdate"><br>
 
             <label for="schoolYear">Año Escolar:</label>
             <input type="text" id="schoolYear" name="schoolYear"><br>
+
+            <label for="section">Sección:</label>
+            <input type="text" id="grade" name="grade"><br>
+
+            <label for="Turn">Turno:</label>
+            <select id="turn" name="turn">
+                <option value="morning">Mañana</option>
+                <option value="afternoon">Tarde</option>
+                <option value="night">Noche</option>
+            </select><br>
 
             <button type="submit">Guardar Alumno</button>
             <button type="button" onclick="closeWindow()">Cancelar</button>

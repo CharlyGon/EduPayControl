@@ -13,6 +13,7 @@ Control of payments (Education) es una solución de escritorio multiplataforma d
 ## Tecnologías Utilizadas
 
 - **Electron**: Para el desarrollo de la aplicación de escritorio multiplataforma, utilizando tecnologías web como HTML, CSS y JavaScript.
+- **Sequelize**: Como ORM para la gestión de la base de datos, permitiendo una fácil configuración y mantenimiento de los datos sin necesidad de escribir consultas SQL.
 - **SQLite**: Para la gestión de bases de datos local, permitiendo una fácil configuración y mantenimiento de los datos sin necesidad de infraestructura adicional.
 - **Node.js**: Como entorno de ejecución para JavaScript en el lado del servidor, facilitando la interacción con la base de datos y la lógica de la aplicación.
 - **HTML/CSS**: Para la creación de interfaces de usuario atractivas y responsivas.

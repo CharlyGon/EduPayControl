@@ -1,0 +1,19 @@
+/* Estilos CSS para la barra de búsqueda */
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Estilos CSS para los botones */
+.buttons-container {
+    display: flex;
+}
+
+.buttons-container button {
+    margin-right: 10px;
+}

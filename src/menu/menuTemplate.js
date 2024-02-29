@@ -1,18 +1,13 @@
 const { Menu } = require('electron');
 const { createStudentsWindow } = require('../windows/createStudentWindows');
 const { quitApp } = require('../windows/quitAppWindows');
+const { findStudents } = require('../windows/findStudentsWindow');
 
 const templateMenu = [
     {
         label: 'File',
         submenu: [
             {
-                label: 'New Student',
-                accelerator: 'Ctrl+N',
-                click() {
-                    createStudentsWindow();
-                }
-            },{
                 label: 'Exit',
                 accelerator: 'Ctrl+Q',
                 click() {
@@ -20,7 +15,25 @@ const templateMenu = [
                 }
             }
         ]
-    },
+    },{
+        label: 'Users',
+        submenu: [
+            {
+                label: 'New Student',
+                accelerator: 'Ctrl+N',
+                click() {
+                    createStudentsWindow();
+                }
+            },
+            {
+                label:'Find Students',
+                accelerator: 'Ctrl+F',
+                click() {
+                    findStudents();
+                }
+            }
+        ]
+    }
 ];
 
 const setMenu = () => {
