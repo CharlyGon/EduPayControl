@@ -6,6 +6,7 @@ let findStudentsWindow;
 
 function findStudents() {
     findStudentsWindow = new BrowserWindow({width: 800, height: 600});
+    findStudentsWindow.setMenu(null);
     findStudentsWindow.loadURL(url.format({
         pathname: path.join(__dirname, '..', 'views', 'findStudents.html'),
         protocol: 'file:',

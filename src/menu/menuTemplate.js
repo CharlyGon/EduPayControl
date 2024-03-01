@@ -33,6 +33,16 @@ const templateMenu = [
                 }
             }
         ]
+    },{
+        label: 'View',
+        submenu: [
+            {
+                label: 'toggledevtools',
+                click(item, focusedWindow) {
+                    focusedWindow.toggleDevTools();
+                }
+            }
+        ]
     }
 ];
 

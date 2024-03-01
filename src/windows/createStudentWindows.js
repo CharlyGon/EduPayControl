@@ -5,7 +5,15 @@ const url = require('url');
 let loadStudentsWindow;
 
 function createStudentsWindow() {
-    loadStudentsWindow = new BrowserWindow({ width: 800, height: 600 });
+    loadStudentsWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+
+    //loadStudentsWindow.setMenu(null);
     loadStudentsWindow.loadURL(url.format({
         pathname: path.join(__dirname, '..', 'views', 'loadStudents.html'),
         protocol: 'file:',

@@ -31,7 +31,7 @@ const Student = sequelize.define('Student', {
     tutorPhone: {
         type: DataTypes.STRING
     },
-    birthDate: {
+    birthdate: {
         type: DataTypes.STRING
     },
     schoolYear: {
@@ -44,3 +44,5 @@ const Student = sequelize.define('Student', {
         type: DataTypes.STRING
     }
 });
+
+module.exports = Student;

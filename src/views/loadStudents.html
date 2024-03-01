@@ -5,7 +5,6 @@
     <title>EduPayControl - Cargar Alumnos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -13,19 +12,20 @@
         <h1>Cargar Datos del Alumno</h1>
     </header>
     <main>
-        <form id="studentForm" enctype="multipart/form-data">
+        <form class="formStudent" enctype="multipart/form-data">
             <label for="photo">Foto del alumno:</label>
             <img id="photoPreview" src="#" alt="Foto del alumno" style="display: none;"><br>
             <input type="file" id="photo" name="photo" accept="image/*"><br>
 
-            <label for="firstName">Nombre:</label>
-            <input type="text" id="firstName" name="firstName"><br>
+            <label for="name">Nombre:</label>
+            <input type="text" class="name" name="firstName"><br>
 
             <label for="lastName">Apellido:</label>
             <input type="text" id="lastName" name="lastName"><br>
 
             <label for="sex">Sexo:</label>
             <select id="sex" name="sex">
+                <option value="none">Ninguno</option>
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
                 <option value="non-binary">No Binario</option>
@@ -44,8 +44,8 @@
             <label for="fatherPhone">Teléfono Padre:</label>
             <input type="text" id="fatherPhone" name="fatherPhone"><br>
 
-            <label for="guardianPhone">Teléfono Tutor:</label>
-            <input type="text" id="guardianPhone" name="guardianPhone"><br>
+            <label for="tutorPhone">Teléfono Tutor:</label>
+            <input type="text" id="tutorPhone" name="guardianPhone"><br>
 
             <label for="birthdate">Fecha de Nacimiento:</label>
             <input type="date" id="birthdate" name="birthdate"><br>
@@ -58,13 +58,14 @@
 
             <label for="Turn">Turno:</label>
             <select id="turn" name="turn">
+                <option value="none">Ninguno</option>
                 <option value="morning">Mañana</option>
                 <option value="afternoon">Tarde</option>
                 <option value="night">Noche</option>
             </select><br>
 
-            <button type="submit">Guardar Alumno</button>
-            <button type="button" onclick="closeWindow()">Cancelar</button>
+            <button type="submit" class="saveButton">Guardar Alumno</button>
+            <button type="button" class="closeWindows">Cancelar</button>
         </form>
     </main>
     <footer>
