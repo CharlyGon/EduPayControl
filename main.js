@@ -1,10 +1,8 @@
-const { BrowserWindow } = require('electron');
 const { setMenu } = require('./src/menu/menuTemplate');
-const path = require('path');
-const url = require('url');
 const { initializeDatabase } = require('./database');
-const{ ipcMain } = require('electron');
-const {saveStudent} = require('./src/db/crud/studentsCrud');
+const { ipcMain } = require('electron');
+const { saveStudent } = require('./src/db/crud/studentsCrud');
+const { createMainWindow } = require('./src/windows/mainWindows');
 
 ipcMain.on('invoke-saveStudent', async (event, studentData) => {
     try {
@@ -17,26 +15,10 @@ ipcMain.on('invoke-saveStudent', async (event, studentData) => {
     }
 });
 
-let mainWindow;
-function createMainWindow() {
-    mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-            enableRemoteModule: true,
-        }
-    });
-
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'src', 'views', 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
+function mainWindow() {
+    createMainWindow();
     setMenu();
     initializeDatabase();
 }
 
-module.exports = { createMainWindow };
+module.exports = { mainWindow };

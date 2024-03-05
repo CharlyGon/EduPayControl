@@ -1,6 +1,6 @@
 const { app } = require('electron');
 const path = require('path');
-const { createMainWindow } = require('./main');
+const { mainWindow } = require('./main');
 
 if (process.env.NODE_ENV !== 'production') {
     require('electron-reload')(__dirname, {
@@ -9,5 +9,5 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 app.on('ready', () => {
-    createMainWindow();
+    mainWindow();
 });

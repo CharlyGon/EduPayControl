@@ -23,7 +23,6 @@ closeWindow.addEventListener('click', () => {
     window.close();
 });
 
-
 // Capturar todos los campos de texto y select
 const fields = document.querySelectorAll('input[type="text"], select');
 
@@ -50,4 +49,3 @@ saveButton.addEventListener('click', async () => {
         console.error('Error al guardar el estudiante', error);
     }
 });
-
