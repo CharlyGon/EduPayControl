@@ -3,6 +3,19 @@ const { setMenu } = require('./src/menu/menuTemplate');
 const path = require('path');
 const url = require('url');
 const { initializeDatabase } = require('./database');
+const{ ipcMain } = require('electron');
+const {saveStudent} = require('./src/db/crud/studentsCrud');
+
+ipcMain.on('invoke-saveStudent', async (event, studentData) => {
+    try {
+        const student = await saveStudent(studentData);
+        console.log('Estudiante guardado en la base de datos:', student.toJSON());
+        event.reply('response-saveStudent', student);
+    } catch (error) {
+        console.error('Error al guardar el estudiante:', error);
+        event.reply('response-saveStudent', { error: error.message });
+    }
+});
 
 let mainWindow;
 function createMainWindow() {
@@ -10,7 +23,9 @@ function createMainWindow() {
         width: 800,
         height: 600,
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
         }
     });
 

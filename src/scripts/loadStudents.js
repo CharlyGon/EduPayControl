@@ -1,8 +1,5 @@
 const studentData = {}
-
-const { remote } = require('electron');
-remote.require("../../index")
-saveDB.saveStudentToDB();
+const {ipcRenderer} = require('electron');
 
 function previewPhoto(input) {
     if (input?.files?.[0]) {
@@ -47,11 +44,10 @@ formStudent.addEventListener('submit', (event) => {
 const saveButton = document.querySelector('.saveButton');
 saveButton.addEventListener('click', async () => {
     try {
-        console.log('Datos guardados');
-        console.log(JSON.stringify(studentData));
-        //const student = await saveStudent(studentData);
-        console.log('estudiante guardado en la base de datos', student);
+        ipcRenderer.send('invoke-saveStudent', studentData);
+        console.log('Datos guardados',JSON.stringify(studentData));
     } catch (error) {
         console.error('Error al guardar el estudiante', error);
     }
 });
+

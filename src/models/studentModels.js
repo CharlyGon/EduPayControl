@@ -1,4 +1,4 @@
-const {DataTypes} = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../db/connection');
 
 const Student = sequelize.define('Student', {
@@ -45,4 +45,4 @@ const Student = sequelize.define('Student', {
     }
 });
 
-module.exports = Student;
+module.exports = { Student };

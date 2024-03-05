@@ -5,7 +5,7 @@ async function saveStudent(studentData) {
         const student = await Student.create(studentData);
         return student;
     } catch (error) {
-        throw new Error('Error al guardar el estudiante: ' + error.message);
+        throw new Error('Error al guardar el estudiante en la base de datos: ' + error.message);
     }
 }
 
