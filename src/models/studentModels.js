@@ -13,6 +13,9 @@ const Student = sequelize.define('Student', {
     lastName: {
         type: DataTypes.STRING
     },
+    documentNumber: {
+        type: DataTypes.STRING
+    },
     sex: {
         type: DataTypes.STRING
     },
