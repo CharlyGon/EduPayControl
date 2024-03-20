@@ -65,4 +65,15 @@ async function getStudents(criteria) {
     }
 }
 
-module.exports = { saveStudent, getStudents };
+async function deleteStudent(idStudent) {
+    try {
+        const student = await Student.findByPk(idStudent);
+        const studentDeleted = await student.destroy();
+        console.log(" Estudiante eliminado", studentDeleted)
+        return true;
+    } catch (error) {
+        throw new Error('Error al eliminar el estudiante de la base de datos: ' + error.message);
+    }
+}
+
+module.exports = { saveStudent, getStudents, getStudentById, deleteStudent, getAllStudents};

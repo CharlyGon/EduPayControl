@@ -39,28 +39,15 @@ ipcRenderer.on('response-findStudents', (event, students) => {
             // Establecer el contenido del elemento con el nombre y el apellido del estudiante
             studentElement.innerHTML = `
                 <p class="student-name">${student.dataValues.name} ${student.dataValues.lastName}</p>
-                <div class="student-details" style="display: none;">
-                    <p>Género: ${student.dataValues.sex}</p>
-                    <p>Dirección: ${student.dataValues.address}</p>
-                    <p>Teléfono: ${student.dataValues.phone}</p>
-                    <p>Teléfono de la madre: ${student.dataValues.motherPhone}</p>
-                    <p>Teléfono del padre: ${student.dataValues.fatherPhone}</p>
-                    <p>Teléfono del tutor: ${student.dataValues.tutorPhone}</p>
-                    <p>Fecha de nacimiento: ${student.dataValues.birthdate}</p>
-                    <p>Año escolar: ${student.dataValues.schoolYear}</p>
-                    <p>Sección: ${student.dataValues.section}</p>
-                    <p>Turno: ${student.dataValues.turn}</p>
-                </div>
             `;
 
-            const studentName = studentElement.querySelector('.student-name');
-            studentName.addEventListener('click', () => {
-                const studentDetails = studentElement.querySelector('.student-details');
-                if (studentDetails.style.display === 'none') {
-                    studentDetails.style.display = 'block';
-                } else {
-                    studentDetails.style.display = 'none';
-                }
+            // Añadir el ID del estudiante como dataset
+            studentElement.dataset.studentId = student.dataValues.id;
+
+            // Agregar evento de clic para mostrar los detalles del estudiante
+            studentElement.addEventListener('click', () => {
+                const studentId = studentElement.dataset.studentId;
+                ipcRenderer.send('show-student-details', studentId);
             });
 
             resultsContainer.appendChild(studentElement);

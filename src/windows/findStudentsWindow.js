@@ -1,4 +1,5 @@
-const { BrowserWindow } = require('electron');
+const { BrowserWindow, ipcRenderer } = require('electron');
+const { ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 
@@ -26,6 +27,7 @@ function findStudents() {
     findStudentsWindow.on('closed', () => {
         findStudentsWindow = null;
     });
+
 }
 
 module.exports = { findStudents };
