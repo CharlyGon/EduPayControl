@@ -1,6 +1,6 @@
 const { ipcRenderer } = require('electron');
 
-ipcRenderer.on('student-details', (event, studentDetails) => {
+function updateStudentDetails(studentDetails) {
     const studentNameElement = document.getElementById('student-name');
     studentNameElement.textContent = studentDetails.dataValues.name + ' ' + studentDetails.dataValues.lastName;
 
@@ -24,6 +24,10 @@ ipcRenderer.on('student-details', (event, studentDetails) => {
         <p>Turno: ${studentDetails.dataValues.turn}</p>
         </div>
         `;
+}
+
+ipcRenderer.on('student-details', (event, studentDetails) => {
+    updateStudentDetails(studentDetails);
 });
 
 const closeWindow = document.querySelector('.closeWindows');
@@ -37,11 +41,7 @@ deleteStudent.addEventListener('click', () => {
         const studentId = getStudentId();
         if (studentId) {
             // Enviar el ID del estudiante al proceso principal para eliminarlo de la base de datos
-            ipcRenderer.send('invoke-deleteStudent', {
-                id: studentId
-            });
-
-            console.log('Eliminar estudiante', studentId);
+            sendDeleteRequest(studentId);
         } else {
             console.log('No se encontraron estudiantes');
         }
@@ -59,6 +59,16 @@ function getStudentId() {
     } else {
         console.error('No se encontraron estudiantes');
         return null;
+    }
+}
+
+function sendDeleteRequest(studentId) {
+    try {
+        // Enviar el ID del estudiante al proceso principal para eliminarlo de la base de datos
+        ipcRenderer.send('invoke-deleteStudent', { id: studentId });
+        console.log('Eliminar estudiante:', studentId);
+    } catch (error) {
+        console.error('Error al eliminar el estudiante:', error);
     }
 }
 

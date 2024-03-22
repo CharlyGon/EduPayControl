@@ -56,8 +56,6 @@ ipcMain.on('invoke-deleteStudent', async (event, studentId) => {
             // Enviar un mensaje a la ventana studentDetailsWindow para que se cierre
             event.sender.send('close-studentDetailsWindow');
         });
-
-        console.log('Estudiante eliminado:', studentId);
     } catch (error) {
         console.error('Error al eliminar el estudiante:', error);
         event.reply('response-deleteStudent', { error: error.message });
